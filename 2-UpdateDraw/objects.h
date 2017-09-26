@@ -29,9 +29,11 @@ class Box
 {
 public:
 	
-	float height;
-	float width;
+	float bleftX;
+	float bleftY;
 
-	void update();
+	float toprigX;
+	float toprigY;
+
 	void draw();    // draws the box
 };

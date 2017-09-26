@@ -9,7 +9,7 @@ int main()
 	//create a window and a drawing context
 	sfw::initContext(800, 500, "NotaSwear");
 
-
+	unsigned int trm = sfw::loadTextureMap("res/img.jpg");
 
 	////set a background color
 	sfw::setBackgroundColor(BLACK);
@@ -54,11 +54,17 @@ int main()
 		line.draw();
 		*/
 
+		sfw::drawTexture(trm, 100, 100, 150, 100);
+
+
 		Box cube;
-		cube.height = 100;
-		cube.width = 100;
+		cube.bleftX = 100;
+		cube.bleftY = 100;
+
+		cube.toprigX = 200;
+		cube.toprigY = 200;
 		cube.draw();
-		cube.update();
+		
 
 	}
 
