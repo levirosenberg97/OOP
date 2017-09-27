@@ -1,4 +1,6 @@
 #pragma once
+
+#pragma once
 #include<string>
 
 
@@ -9,6 +11,6 @@ public:
 
 	bool enabled;
 
-	virtual void update();
-	virtual void draw();
+	//virtual void update();
+	//virtual void draw();
 };

@@ -1,9 +1,14 @@
+#include "..\Assessment3\TapBar.h"
 #include "objects.h"
 #include"sfwdraw.h"
 
 void Circle::draw()
 {
 	sfw::drawCircle(posX, posY, radius);
+}
+
+void Circle::update()
+{
 }
 
 void Line::draw()
