@@ -11,12 +11,12 @@ public:
 	virtual void update();
 };
 
-class Box : public Tap
+class Box : public GameObject
 {
 public:
-	
-	float posX;
-	float posY;
+
+
+
 
 	float dimX;
 	float dimY;
@@ -24,7 +24,7 @@ public:
 	virtual void draw(unsigned int color, const char * letter);
 };
 
-class Circle : public Box
+class Circle : public GameObject
 {
 public:
 
@@ -34,4 +34,6 @@ public:
 	virtual void draw();
 	virtual void update();
 };
+
+
 

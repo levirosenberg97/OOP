@@ -1,10 +1,13 @@
 #pragma once
 #include "TapBar.h"
+#include "Spawner.h"
 
-class ScoreBoard : public Circle
+class ScoreBoard : public Spawner
 {
 public:
-	int score = 0;
-	void update(Circle cir);
+	
+	static int score;
+
+	void update(Spawner cir);
 	void draw();
 };

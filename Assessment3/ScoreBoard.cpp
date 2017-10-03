@@ -1,14 +1,13 @@
 #include "ScoreBoard.h"
 #include "sfwdraw.h"
 #include <string>
+#include"TapBar.h"
 
+int ScoreBoard::score = 0;
 
-void ScoreBoard::update(Circle cir)
+void ScoreBoard::update(Spawner cir)
 {
-	if (cir.color == WHITE)
-	{
-		score += 11;
-	}
+
 }
 
 void ScoreBoard::draw()
