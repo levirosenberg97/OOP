@@ -54,6 +54,11 @@ void ScoreBoard::draw(Multiplier sp)
 	sfw::drawString(sfw::loadTextureMap("fontmap.png", 16, 16), multi.c_str(), 1200, 600, 30, 30);
 }
 
+void ScoreBoard::SetSCore(Multiplier m)
+{
+	score = m.score;
+}
+
 void ScoreBoard::highScore()
 {
 	fstream file;
@@ -74,9 +79,11 @@ void ScoreBoard::highScore()
 	{
 		cout << "File not Found" << endl;
 	}
+
 	while (getline(file, buffer) && line < 11)
 	{
-		if (even == true)
+		int check = line % 2;
+		if (check == 0)
 		{
 			narr[(line - 2) / 2] = buffer;
 			even = false;
@@ -106,12 +113,13 @@ void ScoreBoard::highScore()
 
 	if (topscore == true)
 	{
-		do
-		{
+		
+			
 			sfw::drawString(sfw::loadTextureMap("fontmap.png", 16, 16), "You Got a Top 5 Score\n Enter 3 Letters to Log your Score: ", 200, 900, 40, 40);
+			cout << "You Got a Top 5 Score\n Enter 3 Letters to Log your Score: " << endl;
 			cin >> in;
 			sfw::drawString(sfw::loadTextureMap("fontmap.png", 16, 16), in, 200, 700, 40, 40);
-		} while (strlen(in) != 3);
+		
 
 		for (int i = 0; i < 5; i++)
 		{
@@ -167,9 +175,10 @@ void ScoreBoard::highScore()
 
 	even = false;
 
-	for (int i = 1; line < 11; line++)
+	for (line = 1; line < 11; line++)
 	{
-		if (even == true)
+		int check = line % 2;
+		if (check == 0)
 		{
 			narr[(line - 2) / 2];
 			file << narr[(line - 2) / 2] << endl;
@@ -183,7 +192,7 @@ void ScoreBoard::highScore()
 		}
 	}
 	file.close();
-	timedPause(10000);
+	
 
 	exit(0);
 

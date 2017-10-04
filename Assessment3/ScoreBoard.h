@@ -8,7 +8,7 @@ class ScoreBoard : public GameObject
 {
 public:
 	
-	static int score;
+	 int score = 0;
 
 	
 
@@ -17,7 +17,7 @@ public:
 	
 	void update(Spawner cir);
 	void draw(Multiplier sp);
-
+	void SetSCore(Multiplier m);
 	void highScore();
 	void timedPause(int millisec);
 };

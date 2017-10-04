@@ -1,7 +1,7 @@
 #include "sfwdraw.h"
 #include "TapBar.h"
 #include "ScoreBoard.h"
-#include "Spawner.h"
+
 #include<time.h>
 
 int main()
@@ -20,10 +20,10 @@ int main()
 	Box box4;
 	Box box5;
 	Multiplier multi;
-
+	multi.score = 0;
 	Spawner sp;
 	sp.spawnInt = .7f;
-	sp.counter = 100;
+	sp.counter = 40;
 
 	//create the boxes
 	box1.dimX = 100;
@@ -61,7 +61,7 @@ int main()
 	while (sfw::stepContext())
 	{
 		
-		
+		score.SetSCore(multi);
 		sp.update(multi);
 		sp.draw(multi);
 		score.update(sp);

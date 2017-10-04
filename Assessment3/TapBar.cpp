@@ -96,7 +96,7 @@ void Circle::draw(Multiplier &m)
 	if (sfw::getKey('R') && posY <= 290 && posY >= 110 && posX == 800 && cooldownR > 0)
 	{
 			color = WHITE;
-			ScoreBoard::score += 156 * m.multiplier;
+			m.score += 156 * m.multiplier;
 			
 			enabled = false;
 			sfw::playSound(violin,false);
@@ -129,7 +129,7 @@ void Circle::draw(Multiplier &m)
 	if (sfw::getKey('Q') && posY <= 290 && posY >= 110 && posX == 350 && cooldownR > 0)
 	{
 			color = WHITE;
-			ScoreBoard::score += 156 * m.multiplier;
+			m.score += 156 * m.multiplier;
 			enabled = false;
 			sfw::playSound(oca, false);
 			if (m.multiplier < 8 && posY <= 290 && posY >= 110 && sfw::getKey('Q'))
@@ -161,7 +161,7 @@ void Circle::draw(Multiplier &m)
 	if (sfw::getKey('W') && posY <= 290 && posY >= 110 && posX == 500 && cooldownR > 0)
 	{
 			color = WHITE;
-			ScoreBoard::score += 156 * m.multiplier;
+			m.score += 156 * m.multiplier;
 			enabled = false;
 			sfw::playSound(trom, false);
 			if (m.multiplier < 8 && posY <= 290 && posY >= 110 && sfw::getKey('W'))
@@ -193,7 +193,7 @@ void Circle::draw(Multiplier &m)
 	if (sfw::getKey('E') && posY <= 290 && posY >= 110 && posX == 650 && cooldownR > 0)
 	{
 			color = WHITE;
-			ScoreBoard::score+=156;	
+			m.score += 156 * m.multiplier;
 			enabled = false;
 			sfw::playSound(gui, false);
 			if (m.multiplier < 8 && posY <= 290 && posY >= 110 && sfw::getKey('E'))
@@ -225,10 +225,13 @@ void Circle::draw(Multiplier &m)
 	if (sfw::getKey('T') && posY <= 290 && posY >= 110 && posX == 950 && cooldownR > 0)
 	{
 		color = WHITE;
-		ScoreBoard::score += 156 * m.multiplier;
+		m.score += 156 * m.multiplier;
 		enabled = false;
 		sfw::playSound(tec, false);
 		
+
+
+
 		if (m.multiplier < 8 && posY <= 290 && posY >= 110 && sfw::getKey('T'))
 		{
 			m.multiplier++;
@@ -255,7 +258,7 @@ void Circle::draw(Multiplier &m)
 		}
 	}
 
-	
+
 	
 
 	sfw::drawCircle(posX, posY, 20, 12U, color);
@@ -272,7 +275,6 @@ void Circle::update(Multiplier &m)
 	}
 
 
-	
 	posY -= speedY;
 }
 
