@@ -10,10 +10,8 @@ public:
 	float posX;
 	float posY;
 	
-	float cooldownQ = .5f;
-	float cooldownW = .5f;
-	float cooldownE = .5f;
-	float cooldownR = .5f;
+	
+	double cooldownR = .00000000001f;
 
 	std::string name;
 

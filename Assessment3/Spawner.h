@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include"TapBar.h"
-
+#include "Multiplier.h"
 class Spawner : public GameObject
 {
 	//Time since last Spawned Particle
@@ -20,9 +20,11 @@ public:
 	//Time Between Spawn
 	float spawnInt;
 
+	float counter;
+
 	unsigned int color = WHITE;
 	void DetermineSpawn();
 	void DoSpawn(int cheat);
-	virtual void update();
-	virtual void draw();
+	virtual void update(Multiplier &m);
+	virtual void draw(Multiplier& m);
 };

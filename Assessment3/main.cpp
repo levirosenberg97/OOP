@@ -8,6 +8,9 @@ int main()
 {
 	sfw::initContext(1280, 720);
 	sfw::setBackgroundColor(BLACK);
+	
+	
+	
 	srand(time(NULL));
 	ScoreBoard score;
 	Tap bar;
@@ -15,9 +18,12 @@ int main()
 	Box box2;
 	Box box3;
 	Box box4;
+	Box box5;
+	Multiplier multi;
 
 	Spawner sp;
 	sp.spawnInt = .7f;
+	sp.counter = 100;
 
 	//create the boxes
 	box1.dimX = 100;
@@ -40,20 +46,32 @@ int main()
 	box4.posX = 800;
 	box4.posY = 200;
 
-	//Creates the Circle
+	box5.dimX = 100;
+	box5.dimY = 100;
+	box5.posX = 950;
+	box5.posY = 200;
+
+	//Creates the Scoreboard
+	score.posX = 1100;
+	score.posY = 650;
+	score.dimX = 30;
+	score.dimY = 30;
 	
+
 	while (sfw::stepContext())
 	{
 		
-		sp.update();
-		sp.draw();
+		
+		sp.update(multi);
+		sp.draw(multi);
 		score.update(sp);
-		score.draw();
+		score.draw(multi);
 		box1.draw(GREEN, "Q");
+		
 		box2.draw(RED, "W");
 		box3.draw(YELLOW, "E");
 		box4.draw(BLUE,"R");
-
+		box5.draw(CYAN, "T");
 		bar.draw();
 	}
 

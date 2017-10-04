@@ -1,6 +1,6 @@
 #include"Spawner.h"
 #include <time.h>
-
+#include <iostream>
 Spawner::Spawner()
 {
 	for (int i = 0; i < 100; i++)
@@ -22,7 +22,7 @@ void Spawner::DetermineSpawn()
 	case 1:
 		spawnInt = 0.7f;
 		break;
-	case 2: spawnInt = 0.2f;
+	case 2: spawnInt = .9f;
 		break;
 	case 3: spawnInt = 0.5f;
 		DoSpawn(1);
@@ -32,28 +32,28 @@ void Spawner::DetermineSpawn()
 
 void Spawner::DoSpawn(int cheat)
 {
+	
 	printf("Spawned a thing!\n");
 	srand(time(NULL));
 	// look for an unused particle
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 100; i++)
 	{
-		circles[i].speedY = 500 * sfw::getDeltaTime();
+		
 		if (circles[i].enabled == false)
 		{
 			//spawnInt = rand() % 3 + 1;
 			//spawnInt = 1 / randInterval;
 			//reactivate it
-
-			if (i == 10)
-			{
-				break;
-			}
+			
+			
 
 			Circle& baby = circles[i];
 
-			
+			//multiplier = baby.multiplier;
 
-			int rx = (rand() % 4 + 1) + cheat;
+			baby.speedY = 300 * sfw::getDeltaTime();
+			baby.lifetime = 5;
+			int rx = (rand() % 5 + 1) + cheat;
 
 			baby.posY = 800;
 
@@ -72,11 +72,16 @@ void Spawner::DoSpawn(int cheat)
 			else if (rx == 4)
 			{
 				baby.posX = 800;
+				
+			}
+			else
+			{
+				baby.posX = 950;
 			}
 
-
 			baby.enabled = true;
-
+			
+			
 
 			spawnAcc = 0.0f;
 			break;
@@ -84,9 +89,13 @@ void Spawner::DoSpawn(int cheat)
 	}
 }
 
-void Spawner::update()
+void Spawner::update(Multiplier &m)
 {
-	
+	counter -= sfw::getDeltaTime();
+	if (counter < 0)
+	{
+		std::cout << "Time up";
+	}
 	spawnAcc += sfw::getDeltaTime();
 
 	if (spawnAcc > spawnInt)
@@ -96,22 +105,33 @@ void Spawner::update()
 	}
 
 	//update all of the particles that are active
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 100; i++)
 	{
-
-		circles[i].update();
-
+		if (circles[i].enabled == true)
+		{
+			circles[i].update(m);
+		}
+		
 	}
 }
 
-void Spawner::draw()
+void Spawner::draw(Multiplier& m)
 {
-	for (int i = 0; i < 10; i++)
+	for (int i = 0; i < 100; i++)
 	{
-		// only draw active particles
-		if (circles[i].enabled && i < 10)
+		if (counter <= 0.0f)
 		{
-			circles[i].draw();
+			break;
 		}
+		else
+		{
+			// only draw active particles
+			if (circles[i].enabled && i < 10)
+			{
+				circles[i].draw(m);
+			}
+			
+		}
+		
 	}
 }

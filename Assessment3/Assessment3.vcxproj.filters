@@ -41,5 +41,13 @@
     <ClInclude Include="Spawner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Multiplier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Score.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
